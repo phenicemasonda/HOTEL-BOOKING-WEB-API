@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href ="/css/login.css">
+    <title> 404 Error</title>
+
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+    <link rel="shortcut icon" type="x-icon" href="/assets/favicon.png">
+    <link rel="apple-touch-icon"  href="/assets/favicon.png">
+    <link rel="icon" sizes="192x192" href="/assets/favicon.png">
+
+</head>
+
+
+<header>
+    <div class='logo'> Logo </div>
+   <nav class="navigation">
+            <a href="/"> Book Suites </a>
+            <a href="/login"> Login </a>
+            <a href="/about"> About </a>
+            <a href="/contact"> Contact </a>
+            <a href="/services" > Services </a>
+
+    </nav>
+
+</header>
+
+
+<body>
+
+    <div class="hero-div">
+        <h1> Page Not Found</h1>  <br>
+        <h2> <%= error %></h2> 
+    </div>
+
+    <%- include('./partials/footer'); -%>
+</body>
+
+
+
+</html>

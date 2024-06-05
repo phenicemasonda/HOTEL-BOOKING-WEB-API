@@ -1,0 +1,11 @@
+<header>
+    <link rel="stylesheet" href ="/css/login.css">
+    <h2 class="logo"> Logo </h2>
+    <nav class="navigation">
+        <a href="/" class=" <%= isActiveRoute('/', currentRoute) %>"> Suites </a>
+        <a href="/login" class=" <%= isActiveRoute('/login', currentRoute) %>"> Login </a>
+        <a href="/about" class=" <%= isActiveRoute('/about', currentRoute) %>"> About </a>
+        <a href="/contact" class=" <%= isActiveRoute('/contact', currentRoute) %>"> Contact </a>
+        <a href="/services" class=" <%= isActiveRoute('/services', currentRoute) %>"> Services </a>
+    </nav>
+</header>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width= device-width, initial scale= 1.0">
+    <title> Update Suite </title>
+
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+    <link rel="shortcut icon" type="x-icon" href="/assets/favicon.png">
+    <link rel="apple-touch-icon"  href="/assets/favicon.png">
+    <link rel="icon" sizes="192x192" href="/assets/favicon.png">
+    <link rel="stylesheet" href ="/css/login.css">
+
+</head>
+
+<body>
+
+    <header>
+        <nav class="navigation">
+ 
+        </nav>
+    </header>
+
+
+<div class="product-wrapper">
+
+   
+
+    <div class="form-box">
+
+        <h2 style="margin-top: 30px;"> Update Suite </h2>
+
+
+    <form action="/editSuite/<%= productId %>" method="post" enctype="multipart/form-data">
+
+
+        <div class="input-box">
+            <input type="text" name="name" required>
+            <label for="name"> <b>Suite Name</b> </label>
+        
+        </div>
+                
+        <div class="input-box">
+            <input type="text" name="description" required>
+            <label for="description"> <b> Description</b></label>
+            
+        </div>
+
+        <div class="input-box">
+            <input type="number" name="price" required>
+            <label for="price"> <b> Price </b>  </label>   
+        </div>
+
+        <div class="input-box">
+            <input type="file" name="image" required>
+             
+        </div>
+
+     
+        <label for=""> Select Category</label>
+        <select name="categoryId" id="" class="input-box">
+            <option value="">Select Category </option>
+
+        <% for( let category of categories ) { %>
+            <option  value="<%= category.id %>"> <%= category.name %></option>
+        <% } %>
+        </select> 
+
+        <button type="submit" class="btn"> Update  </button>
+    </form> 
+
+    </div>
+
+</div>
+
+</body>
+
+
+<script src="scripts/script.js"></script>
+<script type="module" src="http://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="http://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</html>
