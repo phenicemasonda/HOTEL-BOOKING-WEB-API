@@ -4,7 +4,7 @@ const dotenv = require('dotenv')
 dotenv.config()
 
 const connectDB = async () =>{
-    mongoose.connect('mongodb+srv://gospel:reqX1aDbCYwZnOfQ@cluster0.capnoqm.mongodb.net/HOTEL_DB', 
+    mongoose.connect('mongodb+srv://gospel:regX1aDbCYwZnOfQ@cluster0.capnoqm.mongodb.net/HOTEL_DB', 
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
