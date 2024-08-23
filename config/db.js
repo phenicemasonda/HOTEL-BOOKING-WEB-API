@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 
 const connectDB = async () =>{
-    mongoose.connect(`mongodb+srv://gospel:regX1aDbCYwZnOfQ@cluster0.capnoqm.mongodb.net/HOTEL_DB`, 
+    mongoose.connect(process.env.MONGODB_URI, 
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
