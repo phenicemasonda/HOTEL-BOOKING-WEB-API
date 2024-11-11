@@ -30,10 +30,13 @@ const JWT_SECRET = process.env.JWT_SECRET;
           if(password !== confirmPassword) {
             return res.render('login', {error: 'Passwords entered do not match', message:'', currentRoute:'/login'})
           }
+          // Encrypt user password 
+          const hashedPassword = await bcrypt.hash(password, 12);
+
           user = new UserModel({
             username,
             email,
-            password, 
+            password: hashedPassword, 
           })
           await user.save() 
           return res.render('login', {message: 'Registration successful', error:'', currentRoute:'/login'}) 
@@ -60,7 +63,7 @@ const JWT_SECRET = process.env.JWT_SECRET;
      let user = await UserModel.findOne({email})
  
      if (!user || !user.validPassword(password)) {
-       return res.render('index', { message:'' ,error: 'Wrong username or password', currentRoute:'/' });
+       return res.render('login', { message:'' ,error: 'Wrong username or password', currentRoute:'/login' });
      }
      let categories = await Category.find()
      let users = await UserModel.find()
@@ -71,12 +74,15 @@ const JWT_SECRET = process.env.JWT_SECRET;
  
  /*   const token = jwt.sign({ userId: userId}, jwtSecret );
       res.cookie('token', token, {httpOnly: true});
+      
   */
+      req.session.authMiddleware = true
+      
       if(user.email === 'ozchange2002@gmail.com') {
        return res.render('admin/adminDashboard', {categories, user, users, orders, userOrders:''});
      } 
     
-     req.session.authMiddleware = true
+   
      if(req.session.url) {
       return res.redirect(req.session.url)
      }
@@ -119,7 +125,7 @@ const JWT_SECRET = process.env.JWT_SECRET;
 
   /*
       * GET /
-      * USER - DASHBOARD
+      * Admin - DASHBOARD
   */
   router.get('/adminDashboard', async(req, res) => {
 
@@ -128,6 +134,7 @@ const JWT_SECRET = process.env.JWT_SECRET;
       let users = await UserModel.find()
       let orders = await Order.find()
       const user = req.session.user
+     
 
       if(req.session.authMiddleware){
         res.render('admin/adminDashboard', {users, categories ,orders, user})
